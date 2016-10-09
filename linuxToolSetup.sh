@@ -4,18 +4,14 @@
 sudo apt-get update
 sudo apt-get -y install git mysql-client-5.6 curl
 
-
-# Create an environment variable for the correct distribution
-export CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)"
-
-# Add the Cloud SDK distribution URI as a package source
-echo "deb http://packages.cloud.google.com/apt $CLOUD_SDK_REPO main" | sudo tee /etc/apt/sources.list.d/google-cloud-sdk.list
-
-# Import the Google Cloud public key
-curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
-
-# Update and install the Cloud SDK
-sudo apt-get update && sudo apt-get -y install google-cloud-sdk
+cd ~
+if [ -d ~/google-cloud-sdk ];then
+	echo "google-cloud-sdk appears already installed, dont dowload.  If want to re-sintall delete the dir first."
+else
+	curl https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-129.0.0-linux-x86_64.tar.gz > google-cloud-sdk.tar.gz
+	tar -zxvf google-cloud-sdk.tar.gz
+	~/google-cloud-sdk/install.sh
+fi
 
 # Run gcloud init to get started
 gcloud init
