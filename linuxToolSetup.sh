@@ -13,8 +13,11 @@ else
 	~/google-cloud-sdk/install.sh
 fi
 
+gcloud components install kubectl
+
 # Run gcloud init to get started
 gcloud init
+
 
 
 exit 0
