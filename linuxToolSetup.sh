@@ -2,7 +2,7 @@
 
 # get the basics
 sudo apt-get update
-sudo apt-get -y install git mysql-client-5.6 curl ant make
+sudo apt-get -y install git mysql-client-5.6 curl ant make python
 
 cd ~
 if [ -d ~/google-cloud-sdk ];then
