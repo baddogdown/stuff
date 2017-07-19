@@ -14,6 +14,7 @@ else
 fi
 
 gcloud components install kubectl
+gcloud components update
 
 # Run gcloud init to get started
 gcloud init
