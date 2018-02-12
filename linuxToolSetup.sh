@@ -2,7 +2,7 @@
 
 # get the basics
 sudo apt-get update
-sudo apt-get -y install git mariadb-client curl ant make python git ##openjdk-7-jdk
+sudo apt-get -y install git mariadb-client curl ant make python jq openjdk-8-jdk
 
 cd ~
 if [ -d ~/google-cloud-sdk ];then
