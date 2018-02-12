@@ -3,7 +3,11 @@
 DIR=/home/chronos/user
 
 curl https://raw.githubusercontent.com/dnschneid/crouton/master/installer/crouton > $DIR/crouton
-sudo bash -e $DIR/crouton -u -r xenial -t audio,cli-extra,core,extension,keyboard,touch,unity,x11,xiwi
+if [ -d /usr/local/chroots/xenial ];then
+        sudo bash -e $DIR/crouton    -r xenial -t audio,cli-extra,core,extension,keyboard,touch,unity,x11,xiwi
+else
+        sudo bash -e $DIR/crouton -u -r xenial -t audio,cli-extra,core,extension,keyboard,touch,unity,x11,xiwi
+fi
 
 curl https://raw.githubusercontent.com/baddogdown/stuff/master/linuxToolSetup.sh > $DIR/linuxToolSetup.sh
 
