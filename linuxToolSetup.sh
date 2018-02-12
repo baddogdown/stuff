@@ -25,12 +25,18 @@ gcloud init
 mkdir ~/repos
 cd ~/repos
 
-echo "Make sure you have added your github keys localy...[press return to continue]"; read CONTINUE
+echo ""
+echo "Enter your github login/email"; read GITHUB_USER
 
-for REPO in release-management internal-tools
+ssh-keygen -t rsa -b 4096 -C "$GITHUB_USER"
+
+echo ""
+echo "Make sure you have added your github public key created above to your guithub account...[press return to continue]"; read CONTINUE
+
+for REPO in efundamentals/release-management efundamentals/internal-tools
 do
 
-	git clone git@github.com:efundamentals/$REPO.git
+	git clone git@github.com:$REPO.git
 
 done
 
