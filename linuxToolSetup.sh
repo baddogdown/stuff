@@ -2,7 +2,7 @@
 
 # get the basics
 sudo apt-get update
-sudo apt-get -y install git mariadb-client curl ant make python jq openjdk-8-jdk
+sudo apt-get -y install git mariadb-client curl ant make python jq npm openjdk-8-jdk
 
 cd ~
 if [ -d ~/google-cloud-sdk ];then
@@ -13,12 +13,17 @@ else
 	~/google-cloud-sdk/install.sh
 fi
 
-gcloud components install kubectl
-gcloud components update
+
+gcloud --quiet components update
+gcloud --quiet components install kubectl
+
 
 # Run gcloud init to get started
 gcloud init
 
+curl https://goo.gl/fd3zc > ~/Downloads/crouton
+
+sudo bash -e ~/Downloads/crouton -r xenial -t audio,cli-extra,core,extension,keyboard,touch,unity,x11,xiwi
 
 
 exit 0
