@@ -13,6 +13,7 @@ else
 	~/google-cloud-sdk/install.sh
 fi
 
+. ~/.bashrc
 
 gcloud --quiet components update
 gcloud --quiet components install kubectl
@@ -21,4 +22,18 @@ gcloud --quiet components install kubectl
 # Run gcloud init to get started
 gcloud init
 
+mkdir ~/repos
+cd ~/repos
+
+echo "Make sure you have added your github keys localy...[press return to continue]"; read CONTINUE
+
+for REPO in release-management internal-tools
+do
+
+	git clone git@github.com:efundamentals/$REPO.git
+
+done
+
+
+git clone
 exit 0
